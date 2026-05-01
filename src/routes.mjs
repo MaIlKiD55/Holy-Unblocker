@@ -7,7 +7,7 @@ const config = Object.freeze(
 );
 
 const ecosystemConfig = Object.freeze(
-  ecosystem.apps.find((app) => app.name === 'HolyUB') || ecosystem.apps[0]
+  ecosystem.apps.find((app) => app.name === 'InvisiProxyLTS') || ecosystem.apps[0]
 );
 
 /* Record the server's location as a URL object, including its host and port.
@@ -60,10 +60,10 @@ let pages = {
   terms: 'pages/nav/terms.html',
   /* Games */
   games: 'pages/nav/directory.html',
-  'web-games': 'pages/nav/games5.html',
+  'web-games': 'pages/nav/games.html',
+  partners: 'pages/nav/partners.html',
   emulators: 'pages/nav/emulators.html',
   'flash-games': 'pages/nav/flash.html',
-  'retro-games': 'pages/nav/emulibrary.html',
   /* Proxies */
   ultraviolet: 'pages/proxnav/ultraviolet.html',
   scramjet: 'pages/proxnav/scramjet.html',
@@ -84,7 +84,7 @@ let pages = {
 
 let externalPages = {
   github: {
-    default: 'https://github.com/QuiteAFancyEmerald/Holy-Unblocker',
+    default: 'https://github.com/QuiteAFancyEmerald/InvisiProxy',
     aos: 'https://github.com/michalsnik/aos',
     'bare-module': 'https://github.com/motortruck1221/bare-as-module3',
     'bare-mux': 'https://github.com/MercuryWorkshop/bare-mux',
@@ -100,7 +100,8 @@ let externalPages = {
   codespaces: 'https://github.com/codespaces',
   'tor-project': 'https://tb-manual.torproject.org/installation',
   'titaniumnetwork-documentation': 'https://docs.titaniumnetwork.org',
-  'patreon': 'https://www.patreon.com/holyunblockerlts',
+  'status': 'https://status.titaniumnetwork.org',
+  'patreon': 'https://www.patreon.com/invisiproxy',
   'titaniumnetwork-discord': 'https://discord.gg/CwWpdGkuWY',
   'truffled': 'https://truffled.lol',
   'rammerhead-discord': 'https://discord.gg/VNT4E7gN5Y',
@@ -112,13 +113,13 @@ let altPaths = {
   'web-games': 'dictionary',
   emulators: 'catalogue',
   'flash-games': 'textbook',
-  'retro-games': 'math',
   ultraviolet: 'networking',
   scramjet: 'working',
   uverror: 'network-error',
   sjerror: 'worker-error',
   rammerhead: 'physics',
   youtube: 'wiki',
+  partners: 'interface',
   apps: 'software',
   flash: 'whiteboard',
   webretro: 'notebook',

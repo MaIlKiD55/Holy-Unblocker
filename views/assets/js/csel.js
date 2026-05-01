@@ -141,7 +141,7 @@ const storageId = '{{hu-lts}}-storage',
   defaultTheme = 'dark',
   // Choose the default transport mode, for proxying, based on the browser.
   // Firefox is not supported by epoxy yet, which is why this is implemented.
-  defaultMode = '{{libcurl}}',
+  defaultMode = '{{epoxy}}',
   defaultSearch = '{{defaultSearch}}';
 
 // All code in this block is used by menu items that adjust website settings.
@@ -184,10 +184,6 @@ if (document.getElementById('csel')) {
     });
   };
 
-  attachEventListener('.dropdown-settings .close-settings-btn', 'click', () => {
-    document.activeElement.blur();
-  });
-
   // Allow users to set a custom title with the UI.
   attachEventListener('titleform', 'submit', (e) => {
     e.preventDefault();
@@ -200,7 +196,7 @@ if (document.getElementById('csel')) {
       // Allow users to reset the title to default if nothing is entered.
       focusElement.focus();
       removeStorage('Title');
-      pageTitle('Holy Unblocker LTS');
+      pageTitle('InvisiProxy LTS');
     }
   });
 
@@ -267,6 +263,8 @@ if (document.getElementById('csel')) {
       )
         classUpdateHandler(torCheck, 'off', classEvent(torCheck, 'change'))();
     }
+
+    if (e.isTrusted) location.reload();
   });
 
   attachClassEventListener('theme-list', 'change', (e) => {
@@ -308,7 +306,7 @@ if (document.getElementById('csel')) {
           options: {
             background: {
               color: {
-                value: styles.getPropertyValue('--particles-bg') || '#1d232a',
+                value: styles.getPropertyValue('--particles-bg') || '#0d1117',
               },
             },
             fullScreen: {
@@ -381,6 +379,11 @@ if (document.getElementById('csel')) {
     }
   });
 
+  attachEventListener('.close-settings-btn', 'click', () => {
+    focusElement.blur();
+    document.activeElement.blur();
+  });
+
   // Allow users to toggle ads with the UI.
   attachClassEventListener('hideads', 'change', (e) => {
     if (checkBooleanState(e.target) === true) {
@@ -425,6 +428,7 @@ if (document.getElementById('csel')) {
       // here may be better than setting it to false.
       removeStorage('UseSocks5');
     }
+    if (e.isTrusted) location.reload();
   });
 
   attachClassEventListener('useac', 'change', (e) => {
@@ -443,6 +447,7 @@ if (document.getElementById('csel')) {
     let torCheck = document.getElementsByClassName('useonion');
     if (!isOff && checkBooleanState(torCheck[0]) === true)
       classUpdateHandler(torCheck, 'off')();
+    if (e.isTrusted) location.reload();
   });
 
   /* The Eruda devtools are an alternative to the Chii devtools.
